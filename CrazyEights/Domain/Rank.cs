@@ -1,6 +1,6 @@
 namespace CrazyEights.Domain;
 
-public enum Rank
+public enum Rank 
 {
     Two = 2,
     Three,
