@@ -1,0 +1,16 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CrazyEights", "CrazyEights\CrazyEights.csproj", "{67D5AE92-034C-45E4-86F6-F965736276CC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{67D5AE92-034C-45E4-86F6-F965736276CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67D5AE92-034C-45E4-86F6-F965736276CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67D5AE92-034C-45E4-86F6-F965736276CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67D5AE92-034C-45E4-86F6-F965736276CC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
