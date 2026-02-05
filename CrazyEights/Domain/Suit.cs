@@ -1,6 +1,9 @@
 namespace CrazyEights.Domain;
 
-public class Suit
+public enum Suit
 {
-    
+    Hearts,
+    Spades,
+    Clubs,
+    Diamonds
 }
