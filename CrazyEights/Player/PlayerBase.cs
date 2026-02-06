@@ -28,7 +28,7 @@ public abstract class PlayerBase : IPlayer
         return card;
     }
 
-    public IReadOnlyList<ICard> PeekHand()
+    protected IReadOnlyList<ICard> PeekHand()
     {
         return _hand.AsReadOnly();
     }
