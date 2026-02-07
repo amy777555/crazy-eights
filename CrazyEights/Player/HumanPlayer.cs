@@ -11,7 +11,7 @@ public class HumanPlayer : PlayerBase
     public override void TakeTurn(TurnContext context)
     {
         Console.WriteLine();
-        Console.WriteLine(Name.ToUpper() + ", it is your turn.");
+        Console.WriteLine(Name.ToUpper() + ", IT IS YOUR TURN.");
         Console.WriteLine("Top discard: " + context.TopDiscard.Display());
         Console.WriteLine("Suit to match: " + context.SuitToMatch);
         Console.WriteLine();
