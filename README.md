@@ -7,7 +7,7 @@ This project implements a simple, console- based version of the game Crazy Eight
 - Each player starts with 5 cards.
 - A card can be played if:
   - Its suit or rank matches the active suit or current rank of the top card in the discard pile, or
-  - It is an Eight, which is considered a wildcard
+  - It is an Eight, which is considered a wildcard.
 - When an Eight is played, the player declares the next suit.
 - If a player has no playable cards, they draw one card.
 - A player wins if their hand becomes empty.
@@ -50,3 +50,6 @@ This project implements a simple, console- based version of the game Crazy Eight
 
 ```bash
 dotnet run
+
+## Game Screenshot
+
