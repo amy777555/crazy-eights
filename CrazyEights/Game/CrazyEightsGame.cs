@@ -5,14 +5,25 @@ using CrazyEights.Player;
 
 namespace CrazyEights.Game;
 
+// This class coordinates a game of Crazy Eights with two players
+// it deals cards, runs the game loop, tracks which suit is active, 
+// ... and determines the winner
+
+// Game Rules:
+// - Players begin with 5 cards
+// - The top discard and the active suit determine if a card is playable
+// - when a non wildcard is played, the cards suit is now the active suit
+// - when the deck is empty, the player with the fewest cards wins
 public class CrazyEightsGame
 {
     private readonly Deck _deck;
     private readonly DiscardPile _discardPile;
     private readonly List<IPlayer> _players;
 
+    // Current active suit
     private Suit _suitToMatch;
 
+    // Creates a new game with a deck and two players
     public CrazyEightsGame(Deck deck, IPlayer player1, IPlayer player2)
     {
         _deck = deck;
@@ -20,6 +31,7 @@ public class CrazyEightsGame
         _players = new List<IPlayer> {player1, player2};
     }
 
+    // Runs the game until a winner is determined
     public void Run()
     {
         StartGame();
@@ -42,6 +54,7 @@ public class CrazyEightsGame
                 {
                     _discardPile.Push(card);
 
+                    // Sets the suit to the played cards suit if not a wildcard
                     if (!card.IsWildcard)
                         _suitToMatch = card.Suit;
                 },
@@ -71,6 +84,7 @@ public class CrazyEightsGame
     private void StartGame()
     {
 
+        // Deals five cards to each player
         for (int i = 0; i < 5; i++)
         {
             foreach (IPlayer player in _players)
@@ -80,10 +94,10 @@ public class CrazyEightsGame
             }
         }
 
+        // Sets the discard pile up with its first card
+        // Sets the active suit to the top discard's suit
         ICard firstDiscard = _deck.Draw();
-
         _discardPile.Push(firstDiscard);
-
         _suitToMatch = firstDiscard.Suit;
 
         Console.WriteLine();

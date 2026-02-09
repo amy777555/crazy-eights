@@ -3,17 +3,21 @@ using CrazyEights.Domain;
 
 namespace CrazyEights.CardDeck;
 
+// This class represents a deck of cards that can only be altered by drawing
+// Cards are stored as a stack
 public class Deck
 {
     private readonly Stack<ICard> _cards;
 
     private Deck(IEnumerable<ICard> cards)
     {
+        // Creates a deck of cards from an existing sequence
         _cards = new Stack<ICard>(cards);
     }
     
     public int Count => _cards.Count;
 
+    // Removes and returns the top card from the deck
     public ICard Draw()
     {
         if (_cards.Count == 0)
@@ -22,7 +26,8 @@ public class Deck
         return _cards.Pop();
     }
 
-    // Fisher-Yates shuffle
+    // Builds a standard deck of cards
+    // uses Fisher-Yates shuffle algorithm to shuffle the deck
     public static Deck Shuffle()
     {
         Random rng = new Random();

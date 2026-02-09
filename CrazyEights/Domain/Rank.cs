@@ -1,5 +1,7 @@
 namespace CrazyEights.Domain;
 
+// Represents the rank of a playing card
+// The numeric value of a card starts at two and increments sequentially
 public enum Rank 
 {
     Two = 2,

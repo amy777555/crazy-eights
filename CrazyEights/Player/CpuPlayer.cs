@@ -4,15 +4,18 @@ using CrazyEights.Game;
 
 namespace CrazyEights.Player;
 
+// This class represents a player that is controlled by the computer
 public class CpuPlayer : PlayerBase
 {
     private readonly Random _rng;
 
+    // Creates a CPU player with random number generator to select suit and rank
     public CpuPlayer(string name) : base(name)
     {
         _rng = new Random();
     }
 
+    // Uses the current game context to execute the CPUs turn
     public override void TakeTurn(TurnContext context)
     {
         Console.WriteLine();
@@ -51,12 +54,14 @@ public class CpuPlayer : PlayerBase
         Console.WriteLine(Name + "'s turn ends.");
     }
 
+    // Randomly selects a playable card from the list
     private ICard ChooseCard(List<ICard> playable)
     {
         int index = _rng.Next(playable.Count);
         return playable[index];
     }
 
+    // Removes the chosen card from the hand, plays it, and declares a suit if a wildcard
     private void PlaySelectedCard(TurnContext context, ICard card, bool drewCard)
     {
         RemoveFromHand(card);
@@ -75,6 +80,7 @@ public class CpuPlayer : PlayerBase
         }
     }
 
+    // Chooses which suit is the active suit after a wildcard is played
     private Suit ChooseSuit()
     {
         Suit[] suits = { Suit.Spades, Suit.Hearts, Suit.Clubs, Suit.Diamonds };

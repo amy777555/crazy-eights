@@ -4,10 +4,13 @@ using CrazyEights.Domain;
 
 namespace CrazyEights.Player;
 
+// This class represents a human player that is controlled in the console
 public class HumanPlayer : PlayerBase
 {
     public HumanPlayer(string name) : base(name) { }
 
+    
+    // Executes a humans turn controlled by the user in the console
     public override void TakeTurn(TurnContext context)
     {
         Console.WriteLine();
@@ -41,6 +44,7 @@ public class HumanPlayer : PlayerBase
         DrawCard(drawnCard);
         Console.WriteLine(Name + ", you drew: " +  drawnCard.Display());
 
+        // The user decided whether or not to play a playable card that was just drawn
         if (drawnCard.IsPlayable(context.TopDiscard, context.SuitToMatch))
         {
             Console.Write("Play the drawn card? Y/N: ");
@@ -56,9 +60,10 @@ public class HumanPlayer : PlayerBase
         Console.WriteLine(Name + ", your turn is complete");
     }
 
+    // Prints the user's current hand
     private void PrintHand()
     {
-        Console.WriteLine(Name + ", our current hand is: ");
+        Console.WriteLine(Name + ", your current hand is: ");
         
         var hand = PeekHand();
         for (int i = 0; i < hand.Count; i++)
@@ -67,6 +72,7 @@ public class HumanPlayer : PlayerBase
         }
     }
 
+    // Prints a list of playable cards that the user must select from
     private void PlayableList(TurnContext context, List<ICard> playable)
     {
         Console.WriteLine(Name + ", your playable cards are: ");
@@ -86,7 +92,9 @@ public class HumanPlayer : PlayerBase
         ICard selected = playable[selection - 1];
         PlayCard(context, selected);
     }
-
+    
+    // Plays a card to the discard pile
+    // Handles the selection of an active suit after a wildcard is played
     private void PlayCard(TurnContext context, ICard card)
     {
         RemoveFromHand(card);
@@ -118,6 +126,7 @@ public class HumanPlayer : PlayerBase
         }
     }
 
+    // Prompts the user to choose a suit after a wildcard is played
     private Suit SuitChoice(Suit currentSuit)
     {
         while (true)
