@@ -1,7 +1,7 @@
 # Crazy Eights Game
 
 ## Project Description
-This project implements a simple, console- based version of the game Crazy Eights. Each game is played between to players, one human and one computer, using a standard 52-card deck.
+This project implements a simple, console- based version of the game Crazy Eights. Each game is played between two players (one human and one computer) using a standard 52-card deck.
 
 ### Game Rules
 - Each player starts with 5 cards.
