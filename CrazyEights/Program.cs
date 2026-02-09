@@ -1,3 +1,27 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using CrazyEights.CardDeck;
+using CrazyEights.Game;
+using CrazyEights.Player;
 
-Console.WriteLine("Hello, World!");
+namespace CrazyEights;
+
+public static class Program
+{
+    public static void Main(string[] args)
+    {
+        Console.Write("Enter your name (or press enter for 'Player'): ");
+        string? nameInput = Console.ReadLine();
+
+        string name = "Player";
+        if (!string.IsNullOrWhiteSpace(nameInput))
+            name = nameInput.Trim();
+        
+        IPlayer human = new HumanPlayer(name);
+        IPlayer cpu = new CpuPlayer("CPU");
+
+        Deck deck = Deck.Shuffle();
+        
+        CrazyEightsGame game = new CrazyEightsGame(deck, human, cpu);
+        
+        game.Run();
+    }
+}

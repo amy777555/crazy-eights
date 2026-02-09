@@ -12,6 +12,7 @@ public class HumanPlayer : PlayerBase
     {
         Console.WriteLine();
         Console.WriteLine(Name.ToUpper() + ", IT IS YOUR TURN.");
+        Console.WriteLine();
         Console.WriteLine("Top discard: " + context.TopDiscard.Display());
         Console.WriteLine("Suit to match: " + context.SuitToMatch);
         Console.WriteLine();
@@ -27,7 +28,8 @@ public class HumanPlayer : PlayerBase
             return;
         }
         
-        Console.WriteLine(Name + ", you have no playable cards. Drawing one card...");
+        Console.Write(Name + ", you have no playable cards. Press enter to draw a card.");
+        Console.ReadLine();
         ICard? drawnCard = context.DrawCard();
 
         if (drawnCard is null)
@@ -56,6 +58,8 @@ public class HumanPlayer : PlayerBase
 
     private void PrintHand()
     {
+        Console.WriteLine(Name + ", our current hand is: ");
+        
         var hand = PeekHand();
         for (int i = 0; i < hand.Count; i++)
         {
@@ -75,7 +79,7 @@ public class HumanPlayer : PlayerBase
                 wc = "(Wildcard!)";
             }
             
-            Console.WriteLine("[" + (i + 1) + "]  " +  playable[i].Display() + " " +wc);
+            Console.WriteLine("  [" + (i + 1) + "]  " +  playable[i].Display() + " " +wc);
         }
 
         int selection = ReadChoice(1, playable.Count, "Choose a card number to play: ");
@@ -120,11 +124,11 @@ public class HumanPlayer : PlayerBase
         {
             Console.WriteLine();
             Console.WriteLine(Name + ", you played a wildcard! Choose a suit:");
-            Console.WriteLine("[S] Spades ♠");
-            Console.WriteLine("[H] Hearts ♥");
-            Console.WriteLine("[C] Clubs ♣");
-            Console.WriteLine("[D] Diamonds ♦");
-            Console.WriteLine(" The current suit is " + currentSuit);
+            Console.WriteLine("  [S] Spades ♠");
+            Console.WriteLine("  [H] Hearts ♥");
+            Console.WriteLine("  [C] Clubs ♣");
+            Console.WriteLine("  [D] Diamonds ♦");
+            Console.WriteLine("The current suit is " + currentSuit);
             Console.Write("Enter the letter of your chosen suit: ");
 
             string? input = Console.ReadLine();

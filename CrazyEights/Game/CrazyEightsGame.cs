@@ -70,9 +70,8 @@ public class CrazyEightsGame
 
     private void StartGame()
     {
-        int startingHandSize = 5;
 
-        for (int i = 0; i < startingHandSize; i++)
+        for (int i = 0; i < 5; i++)
         {
             foreach (IPlayer player in _players)
             {
@@ -87,28 +86,27 @@ public class CrazyEightsGame
 
         _suitToMatch = firstDiscard.Suit;
 
+        Console.WriteLine();
         Console.WriteLine("₊˚ ✧ ‿︵‿‿︵‿୨୧‿︵‿‿︵‿ ✧ ₊˚");
         Console.WriteLine("       Crazy Eights        ");
         Console.WriteLine("₊˚ ✧ ‿︵‿︵‿︵‿︵‿︵‿︵‿ ✧ ₊˚");
-        Console.WriteLine("Starting discard: " + firstDiscard.Display());
         Console.WriteLine();
     }
 
     private void TurnHeader(int round)
     {
+        Console.WriteLine();
         Console.WriteLine("‿︵‿︵‿ Turn " + round + " ‿︵‿︵‿");
         Console.WriteLine("Top discard: " + _discardPile.Top.Display() + " | Suit to Match: " + _suitToMatch);
         Console.WriteLine("Deck remaining: " + _deck.Count + " cards");
-        Console.WriteLine(_players[0].Name + ":" + _players[0].CardCount + " cards" + " | " +
-                          _players[1].Name + ":" + _players[1].CardCount + " cards");
-        Console.WriteLine();
+        Console.WriteLine(_players[0].Name + ": " + _players[0].CardCount + " cards" + " | " +
+                          _players[1].Name + ": " + _players[1].CardCount + " cards");
     }
 
     private void WinByEmptyHand(IPlayer winner)
     {
         Console.WriteLine();
-        Console.WriteLine(winner.Name + " wins!");
-        Console.WriteLine("₊˚ ✧ ‿︵‿︵‿︵‿︵‿︵‿︵‿ ✧ ₊˚");
+        Console.WriteLine("‿︵‿︵‿ " + winner.Name + " wins! ‿︵‿︵‿");
     }
 
     private void WinByFewestCards()
@@ -121,14 +119,12 @@ public class CrazyEightsGame
 
         if (winners.Count == 1)
         {
-            Console.WriteLine(winners[0].Name + " wins by fewest cards!");
+            Console.WriteLine("‿︵‿︵‿ " + winners[0].Name + " wins by fewest cards! ‿︵‿︵‿");
         }
 
         else
         {
-            Console.WriteLine(winners[0].Name + " and " + winners[1].Name + " tied!");
+            Console.WriteLine("‿︵‿︵‿ " + winners[0].Name + " and " + winners[1].Name + " tied! ‿︵‿︵‿");
         }
-
-        Console.WriteLine("₊˚ ✧ ‿︵‿︵‿︵‿︵‿︵‿︵‿ ✧ ₊˚");
     }
 }

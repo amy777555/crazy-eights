@@ -14,17 +14,18 @@ public class Deck
     
     public int Count => _cards.Count;
 
-    public ICard? Draw()
+    public ICard Draw()
     {
         if (_cards.Count == 0)
-            return null;
-        
+            throw new InvalidOperationException("Deck is empty.");
+
         return _cards.Pop();
     }
 
     // Fisher-Yates shuffle
-    public static Deck Shuffle(Random rng)
+    public static Deck Shuffle()
     {
+        Random rng = new Random();
         var cards = new List<ICard>(52);
 
         foreach (Suit suit in Enum.GetValues<Suit>())

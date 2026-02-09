@@ -17,6 +17,7 @@ public class CpuPlayer : PlayerBase
     {
         Console.WriteLine();
         Console.WriteLine("IT IS THE " + Name.ToUpper() + "'S TURN");
+        Console.WriteLine();
         Console.WriteLine("Top discard: " + context.TopDiscard.Display());
         Console.WriteLine("Suit to match: " + context.SuitToMatch);
         Console.WriteLine();
