@@ -19,7 +19,7 @@ This project implements a simple, console- based version of the game Crazy Eight
 
 ### Abstraction
 - `ICard` defines the common behavior for all cards.
-- 'IPlayer' defines the common behavior for all players. 
+- `IPlayer` defines the common behavior for all players. 
 - The game engine interacts with these interfaces as opposed to concrete implementations
 
 ### Inheritance
@@ -27,7 +27,7 @@ This project implements a simple, console- based version of the game Crazy Eight
 - `HumanPlayer` and `CpuPlayer` inherit from `PlayerBase` and implement different strategies for their respective turns. 
 
 ### Polymorphism
-- All players are of type 'IPlayer'
+- All players are of type `IPlayer`
 - The same game loop works on both human and computer players
 
 ### Encapsulation
