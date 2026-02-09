@@ -53,7 +53,7 @@ dotnet run
 ```
 ---
 
-## Game Screenshot
+## Console Output
 
 ![Screenshot 1](assets/screenshot1.png)
 ![Screenshot 2](assets/screenshot2.png)
