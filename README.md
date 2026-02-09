@@ -50,7 +50,7 @@ This project implements a simple, console- based version of the game Crazy Eight
 
 ```bash
 dotnet run
-
+```
 ---
 
 ## Game Screenshot
