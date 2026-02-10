@@ -42,7 +42,7 @@ This project implements a simple, console- based version of the game Crazy Eight
 ## How to Run the Application (Console)
 
 ### Prerequisites
-- .NET SDK installed
+- .NET SDK 9.0 installed
 
 ### Steps
 1. Open a terminal.
